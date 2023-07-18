@@ -61,5 +61,13 @@ class Board
     col.between?(0, 3)
   end
 
-  def evaluate; end
+  def evaluate
+    evaluations = []
+    3.downto(0).each do |index|
+      evaluations << col_uniq?(index)
+      evaluations << row_uniq?(index)
+    end
+    evaluations << diag_uniq?
+    evaluations.uniq == 1 ? evaluations[0] : nil
+  end
 end

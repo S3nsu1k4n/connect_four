@@ -68,6 +68,6 @@ class Board
       evaluations << row_uniq?(index)
     end
     evaluations << diag_uniq?
-    evaluations.uniq == 1 ? evaluations[0] : nil
+    evaluations.include? true
   end
 end
